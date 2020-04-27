@@ -1,0 +1,27 @@
+<mat-card class="example-card" *ngFor="let l of movies">
+  <mat-card-header >
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title >{{l.original_title}}</mat-card-title>
+  </mat-card-header>
+  <img mat-card-image src="https://image.tmdb.org/t/p/w500/{{l.poster_path}}" alt="{{l.title}}" class="principal">
+  <mat-card-content>
+    <div>
+        <h3 >Popularidade:{{l.popularity}}</h3><br>
+        <h3 >Data de Lançamento:{{l.release_date}}</h3><br>
+        <h3 >Quantidade de Votos:{{l.vote_count}}</h3><br>
+    </div>
+    <div>
+      <app-movie-detalhes *ngIf="details"></app-movie-detalhes>
+    </div>
+  </mat-card-content >
+  <mat-card-actions>
+    <button mat-fab (click)="like(l.id)">
+      <mat-icon>favorite</mat-icon>
+    </button>
+    <button mat-raised-button color="primary" color="primary" routerLink="detalhes" type="button" routerLinkActive="selected">
+      details
+    </button>
+  </mat-card-actions>
+</mat-card>
+
+

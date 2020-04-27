@@ -1,0 +1,10 @@
+<mat-card class="filter">
+  <h1>Filtros</h1>
+  <mat-card-content *ngFor="let genre of genres ">
+    <button mat-raised-button color="primary" class="movie"
+    routerLink="filter" (click)="findMovie(genre.id)">{{genre.name}}</button>
+  </mat-card-content>
+ <div *ngFor="let l of resul">
+    <p>{{l.title}}</p>
+ </div>
+</mat-card>

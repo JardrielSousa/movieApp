@@ -1,0 +1,112 @@
+<!--<app-filter *ngIf="main"></app-filter>-->
+<div class="acessebilidade">
+  <a (click)="enableAcessibilidade()" title="acessibilidade">
+    <img src="./../../../assets/acessibilidade.jpg" 
+    class="icon-acessibility">
+  </a>
+  <mat-card *ngIf="tipoAcessibilidade">
+    <mat-card-title>
+      Tipo de Acessibilidade 
+    </mat-card-title>
+    <mat-card-content>
+      Por favor , selecione o tipo de Acessibilidade:
+  <a (click)="enableSize()" title="Font Size">
+    <img src="./../../../assets/size.png" 
+    class="icon-acessibility">
+  </a>
+  </mat-card-content>
+</mat-card>  
+  <div *ngIf="size">
+    <mat-card>
+      <mat-card-title>
+        Acessibilidade - Size
+      </mat-card-title>
+      <mat-card-content>
+        Por favor , o tamanho da fonte
+        <mat-form-field>
+          <mat-select placeholder="Enter a font size:" [(value)]="myFont" name="myFont">
+            <mat-option value="12px">Font Size 12 px</mat-option>
+            <mat-option value="16px">Font Size 16 px</mat-option>
+            <mat-option value="20px">Font Size 20 px</mat-option>
+            <mat-option value="30px">Font Size 30 px</mat-option>
+            <mat-option value="40px">Font Size 40 px</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div>
+          <a (click)="fechar()" class="button-fechar">
+            <img src="./../../../assets/exit.jpg" 
+            class="icon-acessibility">
+          </a>
+        </div>
+      </mat-card-content>
+      </mat-card>
+  </div>
+</div>
+<div>
+  <mat-card class="example-card" *ngFor="let l of movie">
+    <mat-card-header >
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title [ngStyle]="{fontSize : myFont }">{{l.original_title}}</mat-card-title>
+    </mat-card-header>
+    <img mat-card-image src="https://image.tmdb.org/t/p/w500/{{l.poster_path}}" alt="Photo of a Shiba Inu" class="principal">
+    <mat-card-content>
+      <div>
+          <h3 [ngStyle]="{fontSize : myFont }">Popularidade:{{l.popularity}}</h3><br>
+          <h3 [ngStyle]="{fontSize : myFont}">Data de Lançamento:{{l.release_date}}</h3><br>
+          <h3 [ngStyle]="{fontSize : myFont}">Quantidade de Votos:{{l.vote_count}}</h3><br>
+      </div>
+    </mat-card-content >
+    <mat-card-actions>
+      <button mat-fab (click)="like(l.id)">
+        <mat-icon>favorite</mat-icon>
+      </button>
+      <a class="btn btn-outline-primary" routerLink="/detalhes/{{l.id}}" type="button" routerLinkActive="active">
+        detalhes
+      </a>
+    </mat-card-actions>
+  </mat-card>
+</div>
+<div class="ui equal width grid">
+
+  <!-- prev -->
+  <div class="computer only tablet only column">
+    <button [disabled]="page == 1" class="ui fluid orange labeled icon button" (click)="goPage(-1)">
+      <i class="left chevron icon"></i>
+      <span *ngIf="language == 'pl'">Poprzednie</span>
+      <span *ngIf="language != 'pl'">Previous</span>
+    </button>
+  </div>
+
+  <div class="mobile only column">
+    <button [disabled]="page == 1" class="ui fluid orange button" (click)="goPage(-1)">
+      <i class="left chevron icon"></i>
+    </button>
+  </div>
+  <!-- -->
+
+  <!-- pages -->
+  <div class="column">
+    <div class="ui fluid basic disabled button">
+      {{page}} / {{ total_pages }}
+    </div>
+  </div>
+  <!-- -->
+
+  <!-- prev -->
+  <div class="computer only tablet only column">
+    <button [disabled]="page == total_pages" class="ui fluid orange right labeled icon button" (click)="goPage(1)">
+      <span *ngIf="language == 'pl'">Następne</span>
+      <span *ngIf="language != 'pl'">Next</span>
+      <i class="right chevron icon"></i>
+    </button>
+  </div>
+
+  <div class="mobile only column">
+    <button [disabled]="page == total_pages" class="ui fluid orange button" (click)="goPage(1)">
+      <i class="right chevron icon"></i>
+    </button>
+  </div>
+
+
+  
+<br><br><br>
