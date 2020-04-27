@@ -16,14 +16,9 @@ movie:any=[];
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id')
-    console.log('id'+id)
     this.movieService.getDetails(id).subscribe((movies:any) => {
-      this.movie.push(convertToMovieItem(movies))
-      console.log('detalhes movies:'+JSON.stringify(movies))
-      console.log('movies:'+this.movie)
-      
-    })
-    console.log('acessou!!')
+      this.movie.push(convertToMovieItem(movies));
+    });
   }
   voltar(){
     this.router.navigate([''])
