@@ -23,7 +23,7 @@ export class MovieComponent implements OnInit {
   page: number;
   count=0;
   details ;
-  myFont = "20px";
+  myFont = "16px";
   tipoAcessibilidade=false;
   size=false;
   query: string;
@@ -59,7 +59,6 @@ getMoviesGenres(){
   this.movieService.getMoviesGenres().subscribe((genres:any)=>{
     genres.genres.map(e => {
       this.genres.push(convertToGenreItem(e));
-       console.log('genres:'+this.genres)
     })      
   })
   
@@ -87,7 +86,9 @@ getMoviesGenres(){
   this.tipoAcessibilidade=false;
   this.size = false;
  }
-
+ restaurarFonte(){
+  this.myFont = "16px";
+ }
  searchMovies(query: string, page: number) {
   this.searchService.searchMovies(query,page)
     .subscribe(
@@ -96,36 +97,26 @@ getMoviesGenres(){
         this.total_results = response['total_results'];
         this.total_pages = response['total_pages'];
         this.page = response['page'];
-        console.log('TOTAL P SE:'+this.total_pages)
       },
       error => console.error(error)
     );
 }
- goPage(go: number) {
-  let newPage = this.page + go;
-  if (newPage <= this.total_pages && newPage >= 1)
-    this.searchMovies(this.query, newPage);
-}
+ 
+toggleContrast(){
 
-onSelect(movie: Movie) {
-  this.router.navigate(['/movie', movie.id]);
-}
-toggleContrast () {
-  console.log('acessou esse')
+  debugger
   var Contrast = {
-      storage: 'contrastState',
-      cssClass: 'contrast',
-      currentState: null,
-      check: checkContrast,
-      getState: getContrastState,
-      setState: setContrastState,
-      toogle: toogleContrast,
-      updateView: updateViewContrast
+    storage: 'contrastState',
+    cssClass: 'contrast',
+    currentState: null,
+    check: checkContrast,
+    getState: getContrastState,
+    setState: setContrastState,
+    toogle: toogleContrast,
+    updateView: updateViewContrast
   };
 
-  this.toggleContrast = function () {
-    console.log('acessou esse depois')
-     Contrast.toogle(); };
+  this.toggleContrast = function () { Contrast.toogle(); };
 
   Contrast.check();
 
@@ -159,6 +150,7 @@ toggleContrast () {
       this.setState(!this.currentState);
   }
 }
+
 }
 export const convertToMovieItem = ({ id, img, title }): any => {
   return { id, backdrop_path: img, original_title: title};

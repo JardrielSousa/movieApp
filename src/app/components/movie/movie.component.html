@@ -1,8 +1,8 @@
 <mat-card class="filter">
   <h3>Categorias:</h3>
   <mat-card-content *ngFor="let genre of genres ">
-    <button mat-raised-button color="primary" class="movie"
-     routerLink="/filter/{{genre.id}}">{{genre.name}}</button>
+    <a class="btn btn-outline-info genres"
+     routerLink="/filter/{{genre.id}}">{{genre.name}}</a>
   </mat-card-content>
  <div *ngFor="let l of resul">
     <p>{{l.title}}</p>
@@ -41,15 +41,20 @@
             <mat-option value="40px">Font Size 40 px</mat-option>
           </mat-select>
         </mat-form-field>
-        <ul>
-          <button
+        <button
+      class="mx-1 btn-fonte"
+      type="button"
+      title="Restaurar Fonte"
+      (click)="restaurarFonte()"
+    >Restaurar Fonte
+    </button>
+    <button
       class="mx-1 btn-fonte"
       type="button"
       title="Alto contraste"
       (click)="toggleContrast()"
     >Alto contraste
     </button>
-      </ul>
         <div>
           <a (click)="fechar()" class="button-fechar">
             <img src="./../../../assets/exit.jpg" 
@@ -84,47 +89,3 @@
     </mat-card-actions>
   </mat-card>
 </div>
-<div class="ui equal width grid">
-
-  <!-- prev -->
-  <div class="computer only tablet only column">
-    <button [disabled]="page == 1" class="ui fluid orange labeled icon button" (click)="goPage(-1)">
-      <i class="left chevron icon"></i>
-      <span *ngIf="language == 'pl'">Poprzednie</span>
-      <span *ngIf="language != 'pl'">Previous</span>
-    </button>
-  </div>
-
-  <div class="mobile only column">
-    <button [disabled]="page == 1" class="ui fluid orange button" (click)="goPage(-1)">
-      <i class="left chevron icon"></i>
-    </button>
-  </div>
-  <!-- -->
-
-  <!-- pages -->
-  <div class="column">
-    <div class="ui fluid basic disabled button">
-      {{page}} / {{ total_pages }}
-    </div>
-  </div>
-  <!-- -->
-
-  <!-- prev -->
-  <div class="computer only tablet only column">
-    <button [disabled]="page == total_pages" class="ui fluid orange right labeled icon button" (click)="goPage(1)">
-      <span *ngIf="language == 'pl'">Następne</span>
-      <span *ngIf="language != 'pl'">Next</span>
-      <i class="right chevron icon"></i>
-    </button>
-  </div>
-
-  <div class="mobile only column">
-    <button [disabled]="page == total_pages" class="ui fluid orange button" (click)="goPage(1)">
-      <i class="right chevron icon"></i>
-    </button>
-  </div>
-
-
-  
-<br><br><br>
