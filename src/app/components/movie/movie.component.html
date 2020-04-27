@@ -1,4 +1,13 @@
-<!--<app-filter *ngIf="main"></app-filter>-->
+<mat-card class="filter">
+  <h3>Categorias:</h3>
+  <mat-card-content *ngFor="let genre of genres ">
+    <button mat-raised-button color="primary" class="movie"
+     routerLink="/filter/{{genre.id}}">{{genre.name}}</button>
+  </mat-card-content>
+ <div *ngFor="let l of resul">
+    <p>{{l.title}}</p>
+ </div>
+</mat-card>
 <div class="acessebilidade">
   <a (click)="enableAcessibilidade()" title="acessibilidade">
     <img src="./../../../assets/acessibilidade.jpg" 
@@ -32,6 +41,15 @@
             <mat-option value="40px">Font Size 40 px</mat-option>
           </mat-select>
         </mat-form-field>
+        <ul>
+          <button
+      class="mx-1 btn-fonte"
+      type="button"
+      title="Alto contraste"
+      (click)="toggleContrast()"
+    >Alto contraste
+    </button>
+      </ul>
         <div>
           <a (click)="fechar()" class="button-fechar">
             <img src="./../../../assets/exit.jpg" 

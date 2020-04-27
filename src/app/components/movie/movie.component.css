@@ -5,6 +5,12 @@ a{
     border-radius: 20px;
     margin-left: 10px;
   }
+  .filter{
+    height: 170px;
+}
+  .filter button{
+    float: left;
+}
   .icon-acessibility{
     height: 50px;
     width: auto;

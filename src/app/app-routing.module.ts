@@ -11,7 +11,7 @@ const routes: Routes = [
       { path: '', redirectTo: '/movie', pathMatch: 'full' },
       { path: 'movie',component:MovieComponent},
       { path: 'detalhes/:id',component:MovieDetalhesComponent},
-      { path: 'filter',component:FilterComponent},
+      { path: 'filter/:id',component:FilterComponent},
       { path: 'acesso',component:AcessibilityComponent},
       { path:'search/:query',component:SearchComponent },
       { path: '**', component: Error404ComponentComponent  

@@ -19,7 +19,8 @@ export class SearchComponent implements OnInit {
   language: string;
   sort: number;
   query:string=""
-
+  myFont="20px";
+  
   constructor(
     private searchService: SearchService,
     private moviesService: MovieService,

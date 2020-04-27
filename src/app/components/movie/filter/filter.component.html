@@ -1,10 +1,24 @@
-<mat-card class="filter">
-  <h1>Filtros</h1>
-  <mat-card-content *ngFor="let genre of genres ">
-    <button mat-raised-button color="primary" class="movie"
-    routerLink="filter" (click)="findMovie(genre.id)">{{genre.name}}</button>
-  </mat-card-content>
- <div *ngFor="let l of resul">
-    <p>{{l.title}}</p>
+<div>
+   <mat-card class="example-card" *ngFor="let l of moviesGenres">
+     <mat-card-header >
+       <div mat-card-avatar class="example-header-image"></div>
+       <mat-card-title [ngStyle]="{fontSize : myFont }">{{l.original_title}}</mat-card-title>
+     </mat-card-header>
+     <img mat-card-image src="https://image.tmdb.org/t/p/w500/{{l.poster_path}}" alt="Photo of a Shiba Inu" class="principal">
+     <mat-card-content>
+       <div>
+           <h3 [ngStyle]="{fontSize : myFont }">Popularidade:{{l.popularity}}</h3><br>
+           <h3 [ngStyle]="{fontSize : myFont}">Data de Lançamento:{{l.release_date}}</h3><br>
+           <h3 [ngStyle]="{fontSize : myFont}">Quantidade de Votos:{{l.vote_count}}</h3><br>
+       </div>
+     </mat-card-content >
+     <mat-card-actions>
+       <button mat-fab (click)="like(l.id)">
+         <mat-icon>favorite</mat-icon>
+       </button>
+       <a class="btn btn-outline-primary" routerLink="/detalhes/{{l.id}}" type="button" routerLinkActive="active">
+         detalhes
+       </a>
+     </mat-card-actions>
+   </mat-card>
  </div>
-</mat-card>

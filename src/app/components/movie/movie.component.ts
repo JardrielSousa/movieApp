@@ -27,8 +27,8 @@ export class MovieComponent implements OnInit {
   tipoAcessibilidade=false;
   size=false;
   query: string;
-  public main=true;
-
+  main=true;
+  genres:any = [];
 
   constructor(
     private movieService:MovieService,
@@ -37,6 +37,11 @@ export class MovieComponent implements OnInit {
 
   ngOnInit() {
     this.main = true
+    this.getMovies()
+    this.getMoviesGenres()
+  }
+
+  getMovies(){
     this.movieService.getMovies().subscribe((movies:any)=>{
       this.searches = movies;
       this.query = movies['query'];
@@ -44,14 +49,21 @@ export class MovieComponent implements OnInit {
       this.total_results = movies['total_results'];
       this.total_pages = movies['total_pages'];
       this.page = movies['page'];
-      console.log(this.searches)
-      console.log(this.movie)
-      console.log(this.total_results)
-      console.log('TOTAL P INIT:'+this.total_pages)
-      console.log(this.page)
+      this.toggleContrast();
+      
     });
     
   }
+
+getMoviesGenres(){
+  this.movieService.getMoviesGenres().subscribe((genres:any)=>{
+    genres.genres.map(e => {
+      this.genres.push(convertToGenreItem(e));
+       console.log('genres:'+this.genres)
+    })      
+  })
+  
+}
 
   like(id:number){
        this.movie.forEach(a=>{
@@ -75,6 +87,7 @@ export class MovieComponent implements OnInit {
   this.tipoAcessibilidade=false;
   this.size = false;
  }
+
  searchMovies(query: string, page: number) {
   this.searchService.searchMovies(query,page)
     .subscribe(
@@ -97,7 +110,59 @@ export class MovieComponent implements OnInit {
 onSelect(movie: Movie) {
   this.router.navigate(['/movie', movie.id]);
 }
+toggleContrast () {
+  console.log('acessou esse')
+  var Contrast = {
+      storage: 'contrastState',
+      cssClass: 'contrast',
+      currentState: null,
+      check: checkContrast,
+      getState: getContrastState,
+      setState: setContrastState,
+      toogle: toogleContrast,
+      updateView: updateViewContrast
+  };
+
+  this.toggleContrast = function () {
+    console.log('acessou esse depois')
+     Contrast.toogle(); };
+
+  Contrast.check();
+
+  function checkContrast() {
+      this.updateView();
+  }
+
+  function getContrastState() {
+      return localStorage.getItem(this.storage) === 'true';
+  }
+
+  function setContrastState(state) {
+      localStorage.setItem(this.storage, '' + state);
+      this.currentState = state;
+      this.updateView();
+  }
+
+  function updateViewContrast() {
+      var body = document.body;
+
+      if (this.currentState === null)
+          this.currentState = this.getState();
+
+      if (this.currentState)
+          body.classList.add(this.cssClass);
+      else
+          body.classList.remove(this.cssClass);
+  }
+
+  function toogleContrast() {
+      this.setState(!this.currentState);
+  }
+}
 }
 export const convertToMovieItem = ({ id, img, title }): any => {
   return { id, backdrop_path: img, original_title: title};
   }
+  export const convertToGenreItem = ({ id, name }): any => {
+    return { id, name: name };
+  } 

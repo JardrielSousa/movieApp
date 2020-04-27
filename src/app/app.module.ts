@@ -22,6 +22,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { FilterComponent } from './components/movie/filter/filter.component';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { Error404ComponentComponent } from './components/error404-component/error404-component.component';
+import { BackToHomeComponent } from './component/back-to-home/back-to-home.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,6 +34,7 @@ import { Error404ComponentComponent } from './components/error404-component/erro
     AcessibilityComponent,
     FilterComponent,
     Error404ComponentComponent,
+    BackToHomeComponent,
 
   ],
   imports: [

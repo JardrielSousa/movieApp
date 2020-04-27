@@ -1,3 +1,44 @@
-<p>
-  acessibility works!
-</p>
+<!--<app-filter *ngIf="main"></app-filter>-->
+<div class="acessebilidade">
+  <a (click)="enableAcessibilidade()" title="acessibilidade">
+    <img src="./../../../assets/acessibilidade.jpg" 
+    class="icon-acessibility">
+  </a>
+  <mat-card *ngIf="tipoAcessibilidade">
+    <mat-card-title>
+      Tipo de Acessibilidade 
+    </mat-card-title>
+    <mat-card-content>
+      Por favor , selecione o tipo de Acessibilidade:
+  <a (click)="enableSize()" title="Font Size">
+    <img src="./../../../assets/size.png" 
+    class="icon-acessibility">
+  </a>
+  </mat-card-content>
+</mat-card>  
+  <div *ngIf="size">
+    <mat-card>
+      <mat-card-title>
+        Acessibilidade - Size
+      </mat-card-title>
+      <mat-card-content>
+        Por favor , o tamanho da fonte
+        <mat-form-field>
+          <mat-select placeholder="Enter a font size:" [(value)]="myFont" name="myFont">
+            <mat-option value="12px">Font Size 12 px</mat-option>
+            <mat-option value="16px">Font Size 16 px</mat-option>
+            <mat-option value="20px">Font Size 20 px</mat-option>
+            <mat-option value="30px">Font Size 30 px</mat-option>
+            <mat-option value="40px">Font Size 40 px</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div>
+          <a (click)="fechar()" class="button-fechar">
+            <img src="./../../../assets/exit.jpg" 
+            class="icon-acessibility">
+          </a>
+        </div>
+      </mat-card-content>
+      </mat-card>
+  </div>
+</div>

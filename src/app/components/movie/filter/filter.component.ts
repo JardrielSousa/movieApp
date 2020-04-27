@@ -16,6 +16,7 @@ genres:any = [];
 genresSelected:any = [];
 searches: search;
   movies: Movie[];
+  moviesGenres:Movie[];
   total_results: number;
   total_pages: number;
   page: number;
@@ -29,12 +30,18 @@ searches: search;
   ) { }
 
   ngOnInit() {
+    const id = this.route.snapshot.paramMap.get('id');
     this.movieService.getMoviesGenres().subscribe((genres:any)=>{
       genres.genres.map(e => {
         this.genres.push(convertToGenreItem(e));
+         console.log('genres:'+this.genres)
       })      
     })
-  
+    this.movieService.getGenreList(id).subscribe((m:any)=>{
+      this.moviesGenres = m.results
+      console.log('movies genres:'+JSON.stringify(this.moviesGenres)
+      )
+ })
   }
 
   findMovie(id){
@@ -50,15 +57,7 @@ searches: search;
 
       
     });
-
-    this.movieService.getMoviesGenres().subscribe((genres:any)=>{
-      genres.genres.map(e => {
-        if(convertToGenreItem(e).id===id){
-          this.genresSelected.push(convertToGenreItem(e));
-          console.log('selected:'+this.genresSelected)
-        }
-      })      
-    })
+    
   }
   
 }

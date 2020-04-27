@@ -1,0 +1,39 @@
+.icon-acessibility{
+    height: 50px;
+    width: auto;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 10px;
+  }
+  .button-fechar{
+    display: flex;
+    justify-content: flex-end;
+  }
+  .example-header-image {
+    background-size: cover;
+  }
+  .classe0{
+    font-size: 16px;
+    color:limegreen;
+    background-color: blueviolet;
+    padding: 10px;
+}
+
+.classe1{
+    font-size: 20px;
+    color:coral;
+    background-color: aqua;
+    padding: 10px;
+}
+.classe2{
+    font-size: 10px;
+    color:deeppink;
+    background-color: darkgoldenrod;
+    padding: 20px;
+}
+.classe3{
+    font-size: 24px;
+    color:dodgerblue;
+    background-color: indigo;
+    padding: 5px;
+}
