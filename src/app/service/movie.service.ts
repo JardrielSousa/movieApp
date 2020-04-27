@@ -1,35 +1,36 @@
-import { Genres } from './filter/genres.model';
+import { environment } from './../../environments/environment';
+import { Genres } from '../components/movie/filter/genres.model';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { HttpClient, HttpClientModule, HttpErrorResponse, HttpParams } from '@angular/common/http';
-import { Movie } from './movie.model';
+import { Movie } from '../model/movie.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MovieService {
-  private url = 'https://api.themoviedb.org/3/movie/';
-  private urlMovie = 'https://api.themoviedb.org/3/genre/movie/';
-  private apiKey = '6e20392592dc800439e112cec5dc165c';
-  private urlGenres = 'https://api.themoviedb.org/3/discover/movie'
+  private url = environment.url;
+  private apiKey = environment.apiKey;
+  
 genres:Genres[]
   constructor(private http: HttpClient) { }
 
   getMovies(): Observable<Movie[]> {
-    let moviesUrl = `${this.url}popular?api_key=${this.apiKey}`;
+    let moviesUrl = `${this.url}discover/movie?api_key=${this.apiKey}`;
     return this.http.get<Movie[]>(moviesUrl);
   }
   getDetails(id : string) {
-    let detailsUrl = `${this.url}${id}?api_key=${this.apiKey}`;
+    let detailsUrl = `${this.url}movie/${id}?api_key=${this.apiKey}`;
     return this.http.get<Movie[]>(detailsUrl);
   }
+  
   getMoviesGenres(): Observable<Genres[]> {
-    let moviesUrl = `${this.urlMovie}list?api_key=${this.apiKey}`;
+    let moviesUrl = `${this.url}genre/movie/list?api_key=${this.apiKey}`;
     return this.http.get<Genres[]>(moviesUrl);
   }
 
   getGenreList(idGenre: string):Observable<any>{
-    let moviesUrl = `${this.urlGenres}?api_key=${this.apiKey}&with_genres=${idGenre}`;
+    let moviesUrl = `${this.url}discover/movie?api_key=${this.apiKey}&with_genres=${idGenre}`;
     return this.http.get(moviesUrl);
   }
 }

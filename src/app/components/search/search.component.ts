@@ -1,8 +1,8 @@
-import { Movie } from './../movie/movie.model';
+import { Movie } from '../../model/movie.model';
 import { Router, ActivatedRoute } from '@angular/router';
-import { SearchService } from './search.service';
+import { SearchService } from '../../service/search.service';
 import { Component, OnInit } from '@angular/core';
-import { MovieService } from '../movie/movie.service';
+import { MovieService } from '../../service/movie.service';
 
 @Component({
   selector: 'app-search',

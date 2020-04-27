@@ -1,7 +1,7 @@
-import { search } from './../search';
-import { MovieService } from './../movie.service';
+import { search } from '../../../model/search';
+import { MovieService } from '../../../service/movie.service';
 import { Component, OnInit } from '@angular/core';
-import { Movie } from '../movie.model';
+import { Movie } from '../../../model/movie.model';
 import { Genres } from './genres.model';
 import { ActivatedRoute } from '@angular/router';
 
@@ -34,13 +34,11 @@ searches: search;
     this.movieService.getMoviesGenres().subscribe((genres:any)=>{
       genres.genres.map(e => {
         this.genres.push(convertToGenreItem(e));
-         console.log('genres:'+this.genres)
       })      
     })
     this.movieService.getGenreList(id).subscribe((m:any)=>{
       this.moviesGenres = m.results
-      console.log('movies genres:'+JSON.stringify(this.moviesGenres)
-      )
+      
  })
   }
 

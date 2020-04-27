@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Movie } from './movie.model';
-import { MovieService } from './movie.service';
+import { Movie } from '../../model/movie.model';
+import { MovieService } from '../../service/movie.service';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { PageEvent } from '@angular/material/paginator';
-import { search } from './search';
-import { SearchService } from '../search/search.service';
+import { search } from '../../model/search';
+import { SearchService } from '../../service/search.service';
 
 @Component({
   selector: 'app-movie',
@@ -103,8 +103,6 @@ getMoviesGenres(){
 }
  
 toggleContrast(){
-
-  debugger
   var Contrast = {
     storage: 'contrastState',
     cssClass: 'contrast',
