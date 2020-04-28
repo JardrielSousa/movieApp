@@ -13,7 +13,7 @@
             <input matInput [(ngModel)]="query"
                    placeholder="Ex. movie" [ngModelOptions]="{standalone: true}">
             <button class="btn btn-outline-light"
-             routerLink="/search/{{query}}" type="button" routerLink="search">pesquisar</button>
+             type="button" (click)="searchMovies(query)">pesquisar</button>
           </mat-form-field>
         </form>
       </span>

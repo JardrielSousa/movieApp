@@ -1,1 +1,15 @@
+.cab{
+    padding-top: 15px;
+    height: 100px;
+    color: white;
+  position: relative;
+}
 
+.cab a{
+    text-decoration: none;
+    color:white
+}
+
+.search{
+    margin: 60%;
+}

@@ -89,8 +89,8 @@ getMoviesGenres(){
  restaurarFonte(){
   this.myFont = "16px";
  }
- searchMovies(query: string, page: number) {
-  this.searchService.searchMovies(query,page)
+ searchMovies(query: string) {
+  this.searchService.searchMovies(query)
     .subscribe(
       response => {
         this.movies = response['results'];

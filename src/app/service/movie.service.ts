@@ -16,21 +16,21 @@ genres:Genres[]
   constructor(private http: HttpClient) { }
 
   getMovies(): Observable<Movie[]> {
-    let moviesUrl = `${this.url}discover/movie?api_key=${this.apiKey}`;
+    let moviesUrl = `${this.url}discover/movie?api_key=${this.apiKey}&language=pt-br`;
     return this.http.get<Movie[]>(moviesUrl);
   }
   getDetails(id : string) {
-    let detailsUrl = `${this.url}movie/${id}?api_key=${this.apiKey}`;
+    let detailsUrl = `${this.url}movie/${id}?api_key=${this.apiKey}&language=pt-br`;
     return this.http.get<Movie[]>(detailsUrl);
   }
   
   getMoviesGenres(): Observable<Genres[]> {
-    let moviesUrl = `${this.url}genre/movie/list?api_key=${this.apiKey}`;
+    let moviesUrl = `${this.url}genre/movie/list?api_key=${this.apiKey}&language=pt-br`;
     return this.http.get<Genres[]>(moviesUrl);
   }
 
   getGenreList(idGenre: string):Observable<any>{
-    let moviesUrl = `${this.url}discover/movie?api_key=${this.apiKey}&with_genres=${idGenre}`;
+    let moviesUrl = `${this.url}discover/movie?api_key=${this.apiKey}&with_genres=${idGenre}&language=pt-br`;
     return this.http.get(moviesUrl);
   }
 }

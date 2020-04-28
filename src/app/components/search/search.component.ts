@@ -15,28 +15,26 @@ export class SearchComponent implements OnInit {
   movies: Movie[];
   total_results: number;
   total_pages: number;
-  page: number;
-  language: string;
-  sort: number;
-  query:string=""
-  myFont="20px";
+  page: number;  
+  query=""
+  
   
   constructor(
     private searchService: SearchService,
-    private moviesService: MovieService,
     private route: ActivatedRoute,
     private router: Router,
   ) { }
 
   ngOnInit() {
-    const query = this.route.snapshot.paramMap.get('query')
-    this.searchMovies(query,1)
+    this.query = this.route.snapshot.paramMap.get('query')
+    this.searchMovies(this.query)
   }
 
-  searchMovies(query: string,page:number) {
-    this.searchService.searchMovies(query,page)
+  searchMovies(query: string ){
+    this.searchService.searchMovies(query)
       .subscribe(
         response => {
+          this.movies = [];
           this.movies = response['results'];
           this.page = response['page'];
         }
