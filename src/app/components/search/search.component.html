@@ -1,4 +1,4 @@
-  <mat-toolbar color="primary" class="cab mat-elevation-z4">
+  <mat-toolbar class="cab mat-elevation-z4 background-header">
     <mat-toolbar-row>
       <span>
         <a  routerLink="">
@@ -33,13 +33,14 @@
     </div>
   </mat-card-content >
   <mat-card-actions>
-    <button mat-fab (click)="like(l.id)">
-      <mat-icon>favorite</mat-icon>
-    </button>
-    <button class="btn btn-outline-primary" routerLink="/detalhes/{{l.id}}" type="button" routerLinkActive="active">
+    <a mat-fab class="btn btn-outline-info" (click)="like(l.id)">
+      <mat-icon class="button-like">favorite</mat-icon>
+    </a>
+    <a class="btn btn-outline-info" routerLink="/detalhes/{{l.id}}" type="button" routerLinkActive="active">
       detalhes
-    </button>
+    </a>
   </mat-card-actions>
 </mat-card>
+<app-error404-component *ngIf="movies?.length==0"></app-error404-component>
 
 

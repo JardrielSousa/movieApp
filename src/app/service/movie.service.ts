@@ -1,5 +1,5 @@
 import { environment } from './../../environments/environment';
-import { Genres } from '../components/movie/filter/genres.model';
+import { Genres } from '../components/movie/card/genres.model';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { HttpClient, HttpClientModule, HttpErrorResponse, HttpParams } from '@angular/common/http';
@@ -11,7 +11,7 @@ import { Movie } from '../model/movie.model';
 export class MovieService {
   private url = environment.url;
   private apiKey = environment.apiKey;
-  
+
 genres:Genres[]
   constructor(private http: HttpClient) { }
 
@@ -23,7 +23,7 @@ genres:Genres[]
     let detailsUrl = `${this.url}movie/${id}?api_key=${this.apiKey}&language=pt-br`;
     return this.http.get<Movie[]>(detailsUrl);
   }
-  
+
   getMoviesGenres(): Observable<Genres[]> {
     let moviesUrl = `${this.url}genre/movie/list?api_key=${this.apiKey}&language=pt-br`;
     return this.http.get<Genres[]>(moviesUrl);

@@ -25,6 +25,6 @@ movie:any=[];
   }
 
 }
-    export const convertToMovieItem = ({ id, img, title , genre_ids,overview , popularity , poster_path , release_date , original_language , genres ,production_companies , production_countries , revenue , status ,spoken_languages , vote_count }): any => {
+export const convertToMovieItem = ({ id, img, title , genre_ids,overview , popularity , poster_path , release_date , original_language , genres ,production_companies , production_countries , revenue , status ,spoken_languages , vote_count }): any => {
   return { id, backdrop_path: img, original_title: title , genre_ids , overview , popularity , poster_path, release_date , original_language , genres , production_companies , production_countries , revenue , status , spoken_languages , vote_count};
   }

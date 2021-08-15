@@ -4,19 +4,19 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MovieComponent } from './components/movie/movie.component';
 import { MovieDetalhesComponent } from './components/movie-detalhes/movie-detalhes.component';
-import { FilterComponent } from './components/movie/filter/filter.component';
+import { CardComponent } from './components/movie/card/card.component';
 import { AcessibilityComponent } from './components/acessibility/acessibility.component';
 
 const routes: Routes = [
       { path: '', redirectTo: '/movie', pathMatch: 'full' },
       { path: 'movie',component:MovieComponent},
       { path: 'detalhes/:id',component:MovieDetalhesComponent},
-      { path: 'filter/:id',component:FilterComponent},
+      { path: 'filter/:id',component:CardComponent},
       { path: 'acesso',component:AcessibilityComponent},
       { path:'search/:query',component:SearchComponent },
-      { path: '**', component: Error404ComponentComponent  
+      { path: '**', component: Error404ComponentComponent
 },
-  
+
 ];
 
 @NgModule({

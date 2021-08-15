@@ -6,15 +6,15 @@ import { Genres } from './genres.model';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-filter',
-  templateUrl: './filter.component.html',
-  styleUrls: ['./filter.component.css']
+  selector: 'app-card',
+  templateUrl: './card.component.html',
+  styleUrls: ['./card.component.css']
 })
-export class FilterComponent implements OnInit {
-movie:Movie[]
-genres:any = [];
-genresSelected:any = [];
-searches: search;
+export class CardComponent implements OnInit {
+  movie:Movie[]
+  genres:any = [];
+  genresSelected:any = [];
+  searches: search;
   movies: Movie[];
   moviesGenres:Movie[];
   total_results: number;
@@ -34,17 +34,17 @@ searches: search;
     this.movieService.getMoviesGenres().subscribe((genres:any)=>{
       genres.genres.map(e => {
         this.genres.push(convertToGenreItem(e));
-      })      
+      })
     })
     this.movieService.getGenreList(id).subscribe((m:any)=>{
       this.moviesGenres = m.results
-      
+
  })
   }
 
   findMovie(id){
     console.log('id'+id)
-    
+
     this.movieService.getMovies().subscribe((movies:any)=>{
       this.searches = movies;
       this.query = movies['query'];
@@ -53,11 +53,11 @@ searches: search;
       this.total_pages = movies['total_pages'];
       this.page = movies['page'];
 
-      
+
     });
-    
+
   }
-  
+
 }
 export const convertToGenreItem = ({ id, name }): any => {
   return { id, name: name };
@@ -67,4 +67,3 @@ export const convertToGenreItem = ({ id, name }): any => {
     }
 
 
-    

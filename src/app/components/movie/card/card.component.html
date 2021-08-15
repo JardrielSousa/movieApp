@@ -10,15 +10,15 @@
      <mat-card-content>
        <div>
            <h3 [ngStyle]="{fontSize : myFont }">Popularidade:{{l.popularity}}</h3><br>
-           <h3 [ngStyle]="{fontSize : myFont}">Data de Lançamento:{{l.release_date}}</h3><br>
+           <h3 [ngStyle]="{fontSize : myFont}">Data de Lançamento:{{l.release_date | date:'fullDate'}}</h3><br>
            <h3 [ngStyle]="{fontSize : myFont}">Quantidade de Votos:{{l.vote_count}}</h3><br>
        </div>
      </mat-card-content >
      <mat-card-actions>
-       <button mat-fab (click)="like(l.id)">
-         <mat-icon>favorite</mat-icon>
-       </button>
-       <a class="btn btn-outline-primary" routerLink="/detalhes/{{l.id}}" type="button" routerLinkActive="active">
+       <button mat-icon-button color="warn"  (click)="like(l.id)">
+        <mat-icon>favorite</mat-icon>
+      </button>
+       <a class="btn btn-outline-info button-detail " routerLink="/detalhes/{{l.id}}" type="button" routerLinkActive="active">
          detalhes
        </a>
      </mat-card-actions>

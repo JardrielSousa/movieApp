@@ -32,7 +32,7 @@ export class MovieComponent implements OnInit {
 
   constructor(
     private movieService:MovieService,
-    private searchService:SearchService , 
+    private searchService:SearchService ,
     private router : Router) { }
 
   ngOnInit() {
@@ -50,31 +50,32 @@ export class MovieComponent implements OnInit {
       this.total_pages = movies['total_pages'];
       this.page = movies['page'];
       this.toggleContrast();
-      
+
     });
-    
+
   }
 
 getMoviesGenres(){
   this.movieService.getMoviesGenres().subscribe((genres:any)=>{
     genres.genres.map(e => {
       this.genres.push(convertToGenreItem(e));
-    })      
+    })
   })
-  
+
 }
 
   like(id:number){
        this.movie.forEach(a=>{
         if(a.id === id){
           a.vote_count++
-        } 
+        }
         });
   }
 
  enableAcessibilidade(){
     if(this.tipoAcessibilidade){
       this.tipoAcessibilidade=false;
+      this.size = false;
     }else{
       this.tipoAcessibilidade=true;
     }
@@ -101,7 +102,7 @@ getMoviesGenres(){
       error => console.error(error)
     );
 }
- 
+
 toggleContrast(){
   var Contrast = {
     storage: 'contrastState',
@@ -155,4 +156,4 @@ export const convertToMovieItem = ({ id, img, title }): any => {
   }
   export const convertToGenreItem = ({ id, name }): any => {
     return { id, name: name };
-  } 
+  }

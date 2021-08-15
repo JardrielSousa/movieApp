@@ -11,21 +11,21 @@
 </mat-card>
 <div class="acessebilidade">
   <a (click)="enableAcessibilidade()" title="acessibilidade">
-    <img src="./../../../assets/acessibilidade.jpg" 
+    <img src="./../../../assets/acessibilidade.jpg"
     class="icon-acessibility">
   </a>
   <mat-card *ngIf="tipoAcessibilidade">
     <mat-card-title>
-      Tipo de Acessibilidade 
+      Tipo de Acessibilidade
     </mat-card-title>
     <mat-card-content>
       Por favor , selecione o tipo de Acessibilidade:
   <a (click)="enableSize()" title="Font Size">
-    <img src="./../../../assets/size.png" 
+    <img src="./../../../assets/size.png"
     class="icon-acessibility">
   </a>
   </mat-card-content>
-</mat-card>  
+</mat-card>
   <div *ngIf="size">
     <mat-card>
       <mat-card-title>
@@ -58,7 +58,7 @@
     </button>
         <div>
           <a (click)="fechar()" class="button-fechar">
-            <img src="./../../../assets/exit.jpg" 
+            <img src="./../../../assets/exit.jpg"
             class="icon-acessibility">
           </a>
         </div>
@@ -81,10 +81,10 @@
       </div>
     </mat-card-content >
     <mat-card-actions>
-      <button mat-fab (click)="like(l.id)">
-        <mat-icon>favorite</mat-icon>
-      </button>
-      <a class="btn btn-outline-primary" routerLink="/detalhes/{{l.id}}" type="button" routerLinkActive="active">
+      <a mat-fab class="btn btn-outline-info" (click)="like(l.id)">
+        <mat-icon class="button-like">favorite</mat-icon>
+      </a>
+      <a class="btn btn-outline-info" routerLink="/detalhes/{{l.id}}" type="button" routerLinkActive="active">
         detalhes
       </a>
     </mat-card-actions>
