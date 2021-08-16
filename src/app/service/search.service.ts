@@ -12,8 +12,8 @@ export class SearchService {
   constructor (private http: HttpClient) {
   }
 
-  searchMovies(query: string) {
-    let searchUrl = `${this.searchUrl}?api_key=${this.apiKey}&query=${query}&language=pt-br`;
+  searchMovies(query: string,page:number) {
+    let searchUrl = `${this.searchUrl}?api_key=${this.apiKey}&query=${query}&language=en-US`;
     return this.http.get(searchUrl);
   }
 }

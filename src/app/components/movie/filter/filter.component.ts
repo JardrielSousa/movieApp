@@ -6,11 +6,11 @@ import { Genres } from './genres.model';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-card',
-  templateUrl: './card.component.html',
-  styleUrls: ['./card.component.css']
+  selector: 'app-filter',
+  templateUrl: './filter.component.html',
+  styleUrls: ['./filter.component.css']
 })
-export class CardComponent implements OnInit {
+export class FilterComponent implements OnInit {
   movie:Movie[]
   genres:any = [];
   genresSelected:any = [];

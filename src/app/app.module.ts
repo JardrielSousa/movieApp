@@ -19,7 +19,7 @@ import { SearchComponent } from './components/search/search.component';
 import { AcessibilityComponent } from './components/acessibility/acessibility.component';
 import {MatPaginatorModule} from '@angular/material/paginator'
 import {MatFormFieldModule} from '@angular/material/form-field';
-import { CardComponent } from './components/movie/card/card.component';
+import { FilterComponent } from './components/movie/filter/filter.component';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { Error404ComponentComponent } from './components/error404-component/error404-component.component';
 import { BackToHomeComponent } from './components/back-to-home/back-to-home.component';
@@ -32,7 +32,7 @@ import { BackToHomeComponent } from './components/back-to-home/back-to-home.comp
     MovieDetalhesComponent,
     SearchComponent,
     AcessibilityComponent,
-    CardComponent,
+    FilterComponent,
     Error404ComponentComponent,
     BackToHomeComponent,
 

@@ -1,5 +1,4 @@
-
-  <mat-toolbar class="cab mat-elevation-z4 background-header">
+<mat-toolbar class="cab mat-elevation-z4 background-header">
     <mat-toolbar-row>
       <span>
         <a  routerLink="">
@@ -13,7 +12,7 @@
             <input matInput [(ngModel)]="query"
                    placeholder="Ex. movie" [ngModelOptions]="{standalone: true}">
             <button class="btn btn-outline-light"
-             type="button" (click)="searchMovies(query)">pesquisar</button>
+             routerLink="/search/{{query}}" type="button" routerLink="search">pesquisar</button>
           </mat-form-field>
         </form>
       </span>

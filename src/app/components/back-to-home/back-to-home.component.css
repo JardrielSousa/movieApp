@@ -1,7 +1,7 @@
-.icon-voltar{
-    height: 30px;
-    width: auto;
-    border-radius: 10px;
-    cursor: pointer;
-    margin: 10px;
+.icon-voltar {
+  border-radius: 10px;
+  cursor: pointer;
+  height: 50px;
+  width: auto;
+  margin: 2%;
 }
