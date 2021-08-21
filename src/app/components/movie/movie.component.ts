@@ -55,6 +55,10 @@ export class MovieComponent implements OnInit {
 
   }
 
+setSizeText(size){
+
+  }
+
 getMoviesGenres(){
   this.movieService.getMoviesGenres().subscribe((genres:any)=>{
     genres.genres.map(e => {
@@ -64,10 +68,11 @@ getMoviesGenres(){
 
 }
 
-  like(id:number){
+  like(movie){
        this.movie.forEach(a=>{
-        if(a.id === id){
-          a.vote_count++
+        if(a.id === movie.id){
+          a.vote_count++;
+          localStorage.setItem('movie',''+ JSON.stringify(movie))
         }
         });
   }

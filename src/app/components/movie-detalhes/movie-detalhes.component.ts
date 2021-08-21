@@ -18,7 +18,12 @@ movie:any=[];
     const id = this.route.snapshot.paramMap.get('id')
     this.movieService.getDetails(id).subscribe((movies:any) => {
       this.movie.push(convertToMovieItem(movies));
+      let movie = JSON.parse(localStorage.getItem('movie'));
+      this.movie.forEach(element => {
+        element.vote_count = movie.vote_count;
+      });
     });
+
   }
   voltar(){
     this.router.navigate([''])

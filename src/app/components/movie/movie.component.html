@@ -1,5 +1,5 @@
 <app-cabecalho></app-cabecalho>
-<mat-card class="filter">
+<mat-card id ="topo"class="filter">
   <h3>Categorias:</h3>
   <mat-card-content *ngFor="let genre of genres ">
     <a class="btn btn-outline-info genres"
@@ -76,12 +76,12 @@
     <mat-card-content>
       <div>
           <h3 [ngStyle]="{fontSize : myFont }">Popularidade:{{l.popularity}}</h3><br>
-          <h3 [ngStyle]="{fontSize : myFont}">Data de Lançamento:{{l.release_date}}</h3><br>
+          <h3 [ngStyle]="{fontSize : myFont}">Data de Lançamento:{{l.release_date | date:'dd/MM/yyyy'}}</h3><br>
           <h3 [ngStyle]="{fontSize : myFont}">Quantidade de Votos:{{l.vote_count}}</h3><br>
       </div>
     </mat-card-content >
     <mat-card-actions>
-      <a mat-fab class="btn btn-outline-info" (click)="like(l.id)">
+      <a mat-fab class="btn btn-outline-info" (click)="like(l)">
         <mat-icon class="button-like">favorite</mat-icon>
       </a>
       <a class="btn btn-outline-info" routerLink="/detalhes/{{l.id}}" type="button" routerLinkActive="active">
@@ -90,3 +90,7 @@
     </mat-card-actions>
   </mat-card>
 </div>
+<a href="#topo">
+  <img class="back-come-top" src="./../../../assets/back-come.jpg" alt="voltar ao topo">
+</a>
+

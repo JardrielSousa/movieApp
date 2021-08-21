@@ -15,10 +15,10 @@
        </div>
      </mat-card-content >
      <mat-card-actions>
-       <button mat-icon-button color="warn"  (click)="like(l.id)">
-        <mat-icon>favorite</mat-icon>
-      </button>
-       <a class="btn btn-outline-info button-detail " routerLink="/detalhes/{{l.id}}" type="button" routerLinkActive="active">
+       <a mat-icon-button class="btn btn-outline-info"  (click)="like(l.id)">
+        <mat-icon class="button-like">favorite</mat-icon>
+       </a>
+       <a class="btn btn-outline-info " routerLink="/detalhes/{{l.id}}" type="button" routerLinkActive="active">
          detalhes
        </a>
      </mat-card-actions>

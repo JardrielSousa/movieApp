@@ -1,21 +1,21 @@
 <!--<app-filter *ngIf="main"></app-filter>-->
 <div class="acessebilidade">
   <a (click)="enableAcessibilidade()" title="acessibilidade">
-    <img src="./../../../assets/acessibilidade.jpg" 
+    <img src="./../../../assets/acessibilidade.jpg"
     class="icon-acessibility">
   </a>
   <mat-card *ngIf="tipoAcessibilidade">
     <mat-card-title>
-      Tipo de Acessibilidade 
+      Tipo de Acessibilidade
     </mat-card-title>
     <mat-card-content>
       Por favor , selecione o tipo de Acessibilidade:
   <a (click)="enableSize()" title="Font Size">
-    <img src="./../../../assets/size.png" 
+    <img src="./../../../assets/size.png"
     class="icon-acessibility">
   </a>
   </mat-card-content>
-</mat-card>  
+</mat-card>
   <div *ngIf="size">
     <mat-card>
       <mat-card-title>
@@ -34,7 +34,7 @@
         </mat-form-field>
         <div>
           <a (click)="fechar()" class="button-fechar">
-            <img src="./../../../assets/exit.jpg" 
+            <img src="./../../../assets/exit.jpg"
             class="icon-acessibility">
           </a>
         </div>
